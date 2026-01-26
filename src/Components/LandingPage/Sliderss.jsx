@@ -11,7 +11,7 @@ function Slider() {  // Capitalized component name
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentIndex((prev) => (prev + 1) % totalSlides);
-        }, 5000);
+        }, 9000);
 
         return () => clearInterval(interval);
     }, [totalSlides]);

@@ -1,7 +1,8 @@
 import React from 'react';
 import lingImg from "../../assets/textbg.png"
 import Logo from "../../assets/Logo.png"
-import { FaYoutube, FaEnvelope, FaHome, FaFacebook, FaNewspaper, FaShieldAlt, FaFileContract, FaLinkedin, FaTiktok } from 'react-icons/fa';
+import { FaYoutube, FaEnvelope, FaTwitter, FaFacebook, FaInstagram, FaLinkedin, FaTiktok } from 'react-icons/fa';
+import { Twitter } from 'lucide-react';
 
 
 const Footer = () => {
@@ -41,12 +42,29 @@ const Footer = () => {
                 <div className='w-full bg-cover bg-no-repeat h-0.5' style={{ backgroundImage: `url(${lingImg})` }} />
 
                 <div className='w-full grid grid-cols-4 gap-2 mt-10'>
-                    <div className='flex items-start justify-between'>
+                    {/* item one */}
+                    <div className='flex items-start justify-between gap-7'>
                         <img
                             src={Logo}  // Replace with your image URL
                             alt="Absolutely positioned image"
                             className=" w-12 h-12 object-cover rounded-lg shadow-lg"
                         />
+                        <div className='w-200 flex flex-col bg-red-800'>
+                            <p className='font-poppins text-sm font-light text-white leading-8 text-left'>
+                                Nnenna Eloka is a businesswoman, media personality and founder focused on building impactful ideas and platforms.
+                            </p>
+
+                            <div className='flex flex-col w-full mt-10'>
+                                <p className='text-white'>Follow me</p>
+
+                                <div className='w-full grid grid-cols-4 text-white mt-5'>
+                                    <FaFacebook className="text-2xl" />
+                                    <FaInstagram className="text-2xl" />
+                                    <FaLinkedin className="text-2xl" />
+                                    <Twitter className="text-2xl" />
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
