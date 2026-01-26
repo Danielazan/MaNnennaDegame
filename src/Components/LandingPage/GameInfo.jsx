@@ -48,11 +48,11 @@ function GameInfo() {
 
                 <div className='w-full h-110 flex flex-col relative items-center'>
 
-                    <div className="h-80 w-full bg-cover bg-center z-[-20rem] bg-no-repeat  relative" style={{ backgroundImage: `url(${CoinLR})` }}>
+                    <div className="h-90 w-full bg-cover bg-center z-[-20rem] bg-no-repeat  relative" style={{ backgroundImage: `url(${CoinLR})` }}>
                         <img
                             src={Phone}  // Replace with your image URL
                             alt="Absolutely positioned image"
-                            className="absolute bottom-[-11.05rem] left-135 w-55 h-75 object-cover z-10 rounded-lg shadow-lg"
+                            className="absolute bottom-[-12.55rem] left-135 w-55 h-75 object-cover z-10 rounded-lg shadow-lg"
                         />
 
                         <div className="h-80 w-83  bg-center bg-no-repeat bg-contain absolute bottom-[-0-2] left-122" style={{ backgroundImage: `url(${HRingd})` }} />
@@ -61,20 +61,41 @@ function GameInfo() {
 
                     <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-all" />
 
-                    <div className='w-full h-50 bg-red-100 mt-15 flex justify-between items-center px-20'>
+                    <div className='w-full h-50  mt-15 flex justify-between items-center px-20'>
                         {/* item one */}
-                        <div className='w-50 h-32 bg-[#2D2C2C] flex items-center  rounded-lg'>
-                            <div className='w-30'>
+                        
+                        <div className='w-50 h-32 bg-[#2D2C2C] flex items-center justify-center rounded-lg px-6'>
 
+                            <div className='w-full bg-[#111111] h-22 flex items-center justify-center'>
+                                <p className="text-sm text-center text-gray-300 max-w-lg mx-auto font-poppins lg:mx-0">
+                                    Emotional Intelligence.
+                                    <br />
+                                    Decision Making
+                                    <br />
+                                    Discipline.
+                                </p>
                             </div>
+                            
                         </div>
 
-                        {/* item 2 */}
-                    </div>
+                        <div className='w-50 h-32 bg-[#2D2C2C] flex items-center justify-center rounded-lg px-6'>
 
+                            <div className='w-full bg-[#111111] h-22 flex items-center justify-center'>
+                                <p className="text-sm text-center text-gray-300 max-w-lg mx-auto font-poppins lg:mx-0">
+                                    Financial Intelligence.
+                                    <br />
+                                    Smart Spending.
+                                    <br />
+                                    Survival Skills.
+                                </p>
+                            </div>
+                            
+                        </div>
+                    </div>
 
                 </div>
             </div>
+            
         </div>
     )
 }
