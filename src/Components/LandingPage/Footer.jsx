@@ -29,13 +29,13 @@ const Footer = () => {
                         <span>Nnenna Eloka</span>
                     </div>
 
-                    <div className=" col-span-1 px-2 py-6 text-white flex gap-5 items-start">
-                        <FaYoutube className="text-6xl" />
+                    <div className=" col-span-1 px-2 py-6 text-white flex gap-5 items-start justify-center">
+                        <FaYoutube className="text-4xl" />
                         <span className='text-sm'>https:/youtube.com/@nnenna-eloka?si=ggmMsxl1K6X99AWC</span>
                     </div>
 
-                    <div className="col-span-1  px-2 py-6 text-white flex gap-5 ">
-                        <FaEnvelope className="text-2xl" />
+                    <div className="col-span-1  px-2 py-6 text-white flex gap-5 items-center">
+                        <FaEnvelope className="text-4xl" />
                         <span className='text-sm'>info@nnennaelokafoundation.org</span>
                     </div>
                 </div>
@@ -69,10 +69,10 @@ const Footer = () => {
                     </div>
 
                         {/* Items 2 */}
-                    <div className='flex flex-col text-white'>
-                        <h1 className='font-poppins'>Quick Links</h1>
+                    <div className='flex flex-col text-white pl-10'>
+                        <h1 className='font-poppins font-bold text-medium text-lg'>Quick Links</h1>
 
-                        <div className='flex flex-col mt-6 font-poppins text-white'>
+                        <div className='flex flex-col mt-6 font-poppins text-white gap-4'>
                             <h4>Home</h4>
                             <h4>About Nnenna</h4>
                             <h4>The Survival Game</h4>
@@ -81,10 +81,10 @@ const Footer = () => {
                         </div>
                     </div>
                     {/* item 3 */}
-                    <div className='flex flex-col text-white'>
-                        <h1 className='font-poppins'>Resources</h1>
+                    <div className='flex flex-col text-white '>
+                        <h1 className='font-poppins font-bold text-lg'>Resources</h1>
 
-                        <div className='flex flex-col mt-6 font-poppins text-white'>
+                        <div className='flex flex-col mt-6 font-poppins text-white gap-4'>
                             <h4>Blog</h4>
                             <h4>Newsletter</h4>
                             <h4>Privacy Policy</h4>
@@ -95,12 +95,12 @@ const Footer = () => {
                     {/* Item 4 */}
 
                      <div className='flex flex-col text-white'>
-                        <h1 className='font-poppins'>Subscribe</h1>
+                        <h1 className='font-poppins font-bold text-lg'>Subscribe</h1>
 
                         <div className='w-full flex flex-col mt-6 font-poppins text-white gap-2'>
                             <h4>Get more updates straight to your inbox</h4>
-                            <h4>Newsletter</h4>
-                            <div className='border rounded-2xl border-[#F0AE12] flex  items-center justify-between w-5/6 h-10'>
+                            {/* <h4>Newsletter</h4> */}
+                            <div className='border rounded-2xl border-[#F0AE12] flex  items-center justify-between w-5/6 h-10 mt-10'>
                                 <h1 className='font-poppins text-l pl-4'>Enter your email here</h1>
                                 <button className='w-18 rounded-r-2xl h-full text-xs text-black font-bold' style={{backgroundImage:`url(${btnImg})`}}>Subscribe</button>
                             </div>
