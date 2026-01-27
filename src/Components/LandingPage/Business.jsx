@@ -47,9 +47,9 @@ function Business() {
 
                 {/* Ma nnenna img  */}
 
-                <div className='w-full mb-8 flex items-center justify-around '>
+                <div className='w-full mb-8 flex items-center justify-around md:flex-row flex-col'>
                     {/* item one */}
-                    <div className="w-1/2">
+                    <div className="w-full md:w-1/2">
                         <img
                             src={nne}  // Replace with your image URL
                             alt="Absolutely positioned image"
@@ -57,8 +57,10 @@ function Business() {
                         />
 
                     </div>
+
                     {/* item two */}
-                    <div className="w-1/2 flex flex-col space-y-6 md:space-y-8 mt-16 md:mt-0 max-w-sm">
+                    <div className="w-full md:w-1/2 flex flex-col space-y-6 md:space-y-8 mt-16 md:mt-0 max-w-xs md:max-w-sm ">
+
                         <BioCard
                             icon={Anchor}
                             title="Anchor of the $20 Survival Game Show"
