@@ -80,9 +80,9 @@ function Business() {
                 
                 </div>
 
-            <div className='w-full h-100 absolute bottom-[-4.05rem] left-0 bg-cover bg-center bg-no-repeat rotate-[5deg]' style={{backgroundImage:`url(${leftRib})`}}></div>
+            <div className='hidden md:block md:w-full h-0 md:h-100 absolute bottom-[-4.05rem] left-0 bg-cover bg-center bg-no-repeat rotate-[5deg]' style={{backgroundImage:`url(${leftRib})`}}></div>
 
-            <div className='w-full h-100 absolute bottom-[-4.05rem] right-[-2.4rem] bg-cover bg-center bg-no-repeat rotate-[8deg]' style={{backgroundImage:`url(${rightRib})`}}></div>
+            <div className='hidden md:block md:w-full h-100 absolute bottom-[-4.05rem] right-[-2.4rem] bg-cover bg-center bg-no-repeat rotate-[8deg]' style={{backgroundImage:`url(${rightRib})`}}></div>
 
             </div>
         </div>

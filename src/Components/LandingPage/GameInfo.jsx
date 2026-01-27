@@ -12,9 +12,9 @@ import { ArrowRight, CircleArrowLeft } from 'lucide-react';
 function GameInfo() {
     return (
         <div className="min-h-screen w-full bg-cover bg-center bg-no-repeat bg-black  relative overflow-hidden">
-            <div className='w-full h-80 absolute top-[-0.05rem] left-[-0.4rem]' style={{ backgroundImage: `url(${leftcross})` }}></div>
+            <div className='w-150 md:w-full h-80 absolute md:top-[-0.05rem] top-18 md:left-[-0.4rem] md:rotate-0 rotate-12 -left-5' style={{ backgroundImage: `url(${leftcross})` }}></div>
 
-            <div className='w-full h-80 absolute top-[-0.05rem] right-[-0.4rem]' style={{ backgroundImage: `url(${rightcross})` }}></div>
+            <div className='w-150 md:w-full h-80 absolute md:top-[-0.05rem] right-[1.5rem] md:right-[-0.4rem] md:rotate-0 -rotate-12 top-[-4.05rem]' style={{ backgroundImage: `url(${rightcross})` }}></div>
 
 
             <div className="w-full px-2 md:px-5 relative overflow-hidden">
