@@ -24,8 +24,8 @@ function HeroTwo() {
             className="absolute top-4 left-170 w-32 h-32 object-cover rounded-lg shadow-lg"
           />
           {/* Flexed div with humnan image */}
-          <div className='flex w-3/4 relative '>
-            <div className='w-1/2  h-100 bg-no-repeat bg-contain relative' style={{ backgroundImage: `url(${HM})` }}>
+          <div className='flex flex-col md:flex-row w-3/4 relative '>
+            <div className='w-full md:w-1/2 h-100 bg-no-repeat bg-contain relative' style={{ backgroundImage: `url(${HM})` }}>
               <img
                 src={ring}  // Replace with your image URL
                 alt="Absolutely positioned image"
@@ -33,7 +33,7 @@ function HeroTwo() {
               />
             </div>
 
-            <div className='w-1/2 relative items-center flex justify-center flex-col text-center'>
+            <div className='w-full md:w-1/2 relative items-center flex justify-center flex-col text-center'>
               <h1
                 className="text-5xl font-poppins md:text-3xl font-black bg-gradient-to-r from-purple-400 via-pink-500 to-blue-500 bg-clip-text text-transparent mb-4"
                 style={{

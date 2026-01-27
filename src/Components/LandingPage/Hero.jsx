@@ -12,9 +12,10 @@ function Hero() {
                 <Navbar/>
 
                 {/* main content */}
-                <div className="flex items-center  px-2 ">
+                <div className=" flex flex-col md:flex-row items-center  px-2 ">
                     {/* Left */}
-                    <div className='w-full md:w-90 ml-20 '>
+                    <div className='w-full md:w-90 ml-20 flex items-center flex-col md:block mb-10 md:mb-0'>
+
                         <p className="text-[#F0AE12] font-poppins font-medium  text-lg mb-3">Hey, I'm</p>
  
                         {/* <div className="flex gap-4 mt-10">
@@ -42,7 +43,7 @@ function Hero() {
 
 
                     {/* Right Image */}
-                    <div className="w-1/2 h-125 bg-contain bg-no-repeat relative flex justify-start" style={{ backgroundImage: `url(${mainPic})` }}>
+                    <div className="w-full h-132 md:125  bg-contain md:bg-contain bg-no-repeat relative flex justify-start" style={{ backgroundImage: `url(${mainPic})` }}>
 
                     </div>
 
