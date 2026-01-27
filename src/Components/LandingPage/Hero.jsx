@@ -43,7 +43,7 @@ function Hero() {
 
 
                     {/* Right Image */}
-                    <div className="w-full h-132 md:125  bg-contain md:bg-contain bg-no-repeat relative flex justify-start" style={{ backgroundImage: `url(${mainPic})` }}>
+                    <div className="w-full h-127 md:h-125  bg-contain md:bg-contain bg-no-repeat relative flex justify-start" style={{ backgroundImage: `url(${mainPic})` }}>
 
                     </div>
 
