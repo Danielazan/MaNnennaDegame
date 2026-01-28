@@ -8,11 +8,11 @@ import { Twitter } from 'lucide-react';
 
 const Footer = () => {
     return (
-        <div className="h-100 w-full bg-cover bg-center bg-no-repeat bg-[#000000]  relative">
+        <div className=" h-full md:h-100 w-full bg-cover bg-center bg-no-repeat bg-[#000000]  relative">
 
             <div className="w-full px-2 md:px-5 relative overflow-hidden ">
                 {/* Links section1 */}
-                <div className="w-full grid grid-cols-5 gap-2 px-1 ">
+                <div className="w-full grid grid-cols-2 md:grid-cols-5 gap-2 px-1 ">
 
                     <div className="col-span-1 px-2 py-6 text-white flex gap-2 ">
                         <FaLinkedin className="text-2xl" />
@@ -29,12 +29,12 @@ const Footer = () => {
                         <span>Nnenna Eloka</span>
                     </div>
 
-                    <div className=" col-span-1 px-2 py-6 text-white flex gap-5 items-start justify-center">
+                    <div className="md:col-span-1  col-span-2 px-2 py-6 text-white flex gap-5 md:items-start items-center justify-center">
                         <FaYoutube className="text-4xl" />
                         <span className='text-sm'>https:/youtube.com/@nnenna-eloka?si=ggmMsxl1K6X99AWC</span>
                     </div>
 
-                    <div className="col-span-1  px-2 py-6 text-white flex gap-5 items-center">
+                    <div className="md:col-span-1  col-span-2 px-2 py-6 text-white flex gap-5 items-center">
                         <FaEnvelope className="text-4xl" />
                         <span className='text-sm'>info@nnennaelokafoundation.org</span>
                     </div>
@@ -42,9 +42,9 @@ const Footer = () => {
 
                 <div className='w-full bg-cover bg-no-repeat h-0.5' style={{ backgroundImage: `url(${lingImg})` }} />
 
-                <div className='w-full grid grid-cols-4 gap-2 mt-10'>
+                <div className='w-full grid grid-cols-2 md:grid-cols-4 gap-2 mt-10'>
                     {/* item one */}
-                    <div className='flex items-start justify-between gap-7'>
+                    <div className='col-span-2 md:col-span-1 mb-10 md:mb-0 flex items-start justify-between gap-7'>
                         <img
                             src={Logo}  // Replace with your image URL
                             alt="Absolutely positioned image"
@@ -94,7 +94,7 @@ const Footer = () => {
 
                     {/* Item 4 */}
 
-                     <div className='flex flex-col text-white'>
+                     <div className='col-span-2 md:col-span-1 mt-8 md:mt-0 flex flex-col items-center justify-center md:items-start md:justify-start text-white'>
                         <h1 className='font-poppins font-bold text-lg'>Subscribe</h1>
 
                         <div className='w-full flex flex-col mt-6 font-poppins text-white gap-2'>
