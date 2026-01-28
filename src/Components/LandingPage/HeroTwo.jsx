@@ -13,11 +13,11 @@ function HeroTwo() {
   return (
     <div className="min-h-screen w-full bg-cover bg-center bg-no-repeat  relative" style={{ backgroundImage: `url(${bg})` }}>
 
-      <div className="w-full px-2 md:px-5 relative overflow-hidden ">
-        <Navbar />
+      <div className="w-full  md:px-5 relative overflow-hidden ">
+        <Navbar signup={true} />
 
         {/* Main content */}
-        <div className='w-full px:5 bg-contain bg-no-repeat bg-center relative overflow-hidden flex flex-col justify-center items-center' style={{ backgroundImage: `url(${CB})` }}>
+        <div className='w-full  bg-contain bg-no-repeat bg-center relative overflow-hidden flex flex-col justify-center items-center' style={{ backgroundImage: `url(${CB})` }}>
           <img
             src={startcoin}  // Replace with your image URL
             alt="Absolutely positioned image"
@@ -25,7 +25,7 @@ function HeroTwo() {
           />
           {/* Flexed div with humnan image */}
           <div className='flex flex-col md:flex-row w-3/4 relative '>
-            <div className='w-full md:w-1/2 md:h-80 md:h-100 bg-no-repeat bg-contain relative' style={{ backgroundImage: `url(${HM})` }}>
+            <div className='w-full md:w-1/2  md:h-100 bg-no-repeat bg-contain relative' style={{ backgroundImage: `url(${HM})` }}>
               <img
                 src={ring}  // Replace with your image URL
                 alt="Absolutely positioned image"

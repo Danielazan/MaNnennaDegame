@@ -12,7 +12,7 @@ function Hero() {
                 <Navbar/>
 
                 {/* main content */}
-                <div className=" flex flex-col md:flex-row items-center  px-2 ">
+                <div className="w-full overflow-hidden flex flex-col md:flex-row items-center  px-2 ">
                     {/* Left */}
                     <div className='w-full md:w-90 ml-20 flex items-center flex-col md:block mb-10 md:mb-0'>
 
