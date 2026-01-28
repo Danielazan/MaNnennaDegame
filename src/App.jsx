@@ -8,7 +8,7 @@ import Footer from './Components/LandingPage/Footer';
 function App() {
 
   return (
-    <div className="bg-white">
+    <div>
       <Sliderss/>
       <Business/>
       <GameInfo/>

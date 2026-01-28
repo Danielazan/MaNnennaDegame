@@ -12,9 +12,9 @@ import { ArrowRight, CircleArrowLeft } from 'lucide-react';
 function GameInfo() {
     return (
         <div className="min-h-screen w-full bg-cover bg-center bg-no-repeat bg-black  relative overflow-hidden">
-            <div className='w-150 md:w-full h-80 absolute md:top-[-0.05rem] top-18 md:left-[-0.4rem] md:rotate-0 rotate-12 -left-5' style={{ backgroundImage: `url(${leftcross})` }}></div>
+            <div className='w-150 md:w-full h-80 absolute md:top-[-0.05rem] top-18 md:left-[-0.4rem] md:rotate-0 rotate-12 -left-9' style={{ backgroundImage: `url(${leftcross})` }}></div>
 
-            <div className='w-150 md:w-full h-80 absolute md:top-[-0.05rem] right-[1.5rem] md:right-[-0.4rem] md:rotate-0 -rotate-12 top-[-4.05rem]' style={{ backgroundImage: `url(${rightcross})` }}></div>
+            <div className='w-150 md:w-full h-80 absolute md:top-[-0.05rem] right-[-1.5rem] md:right-[-0.4rem] md:rotate-0 -rotate-12 top-[-4.05rem]' style={{ backgroundImage: `url(${rightcross})` }}></div>
 
 
             <div className="w-full px-2 md:px-5 relative overflow-hidden">
@@ -29,8 +29,8 @@ function GameInfo() {
                 </div>
 
                 {/* write up */}
-                <div className='flex w-full items-center  flex-col h-50 justify-around '>
-                    <p className="text-lg md:text-sm font-poppins font-medium text-gray-300  leading-relaxed">
+                <div className='flex w-full items-center  flex-col h-50 justify-around gap-14'>
+                    <p className="text-lg md:text-sm font-poppins font-medium text-center md:text-left text-gray-300  leading-relaxed">
                         The $20 Daily Survival Game Show is more than entertainment it’s a mirror of
                         <br />
                         real life. It challenges young people to think, plan, adapt, and make smart
@@ -39,23 +39,23 @@ function GameInfo() {
                     </p>
 
 
-                    <button className="w-35 h-10 group relative inline-flex items-center justify-between bg-gradient-to-r from-amber-600 via-yellow-500 to-amber-600 px-2 py-6 rounded-2xl font-poppins font-bold text-xl md:text-sm text-black shadow-2xl shadow-amber-900/50 hover:shadow-amber-700/60 hover:scale-[1.03] transition-all duration-300">
+                    <button className="w-35 h-10 group relativeinline-flex items-center justify-between bg-gradient-to-r from-amber-600 via-yellow-500 to-amber-600 px-2 py-6 rounded-2xl font-poppins font-bold text-xl md:text-sm text-black shadow-2xl shadow-amber-900/50 hover:shadow-amber-700/60 hover:scale-[1.03] transition-all duration-300">
 
                         Learn More
                         <CircleArrowLeft className="w-7 h-7 group-hover:-translate-x-1 transition-transform rotate-180 text-white" />
                     </button>
                 </div>
 
-                <div className='w-full h-110 flex flex-col relative items-center'>
+                <div className='w-full h-200 md:h-110 flex flex-col relative items-center mt-30 md:mt-0'>
 
-                    <div className="h-90 w-full bg-cover bg-center z-[-20rem] bg-no-repeat  relative" style={{ backgroundImage: `url(${CoinLR})` }}>
+                    <div className="h-100  md:h-90 w-full bg-cover bg-center z-[-20rem] bg-no-repeat  relative" style={{ backgroundImage: `url(${CoinLR})` }}>
                         <img
                             src={Phone}  // Replace with your image URL
                             alt="Absolutely positioned image"
-                            className="absolute bottom-[-12.55rem] left-135 w-55 h-75 object-cover z-10 rounded-lg shadow-lg"
+                            className="relative md:absolute md:bottom-[-12.55rem] md:left-135 w-full md:w-55 h-90 md:h-75 object-cover z-10 rounded-lg shadow-lg"
                         />
 
-                        <div className="h-80 w-83  bg-center bg-no-repeat bg-contain absolute bottom-[-0-2] left-122" style={{ backgroundImage: `url(${HRingd})` }} />
+                        <div className="h-80 w-83  bg-center bg-no-repeat bg-contain absolute bottom-50  md:bottom-[-0-2] left-13 md:left-122" style={{ backgroundImage: `url(${HRingd})` }} />
 
                     </div>
 
