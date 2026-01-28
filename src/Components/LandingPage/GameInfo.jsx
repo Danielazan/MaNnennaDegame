@@ -39,7 +39,7 @@ function GameInfo() {
                     </p>
 
 
-                    <button className="w-35 h-10 group relativeinline-flex items-center justify-between bg-gradient-to-r from-amber-600 via-yellow-500 to-amber-600 px-2 py-6 rounded-2xl font-poppins font-bold text-xl md:text-sm text-black shadow-2xl shadow-amber-900/50 hover:shadow-amber-700/60 hover:scale-[1.03] transition-all duration-300">
+                    <button className="md:w-35 w-40 h-10 group relative inline-flex items-center justify-between bg-gradient-to-r from-amber-600 via-yellow-500 to-amber-600 px-2 py-6 rounded-2xl font-poppins font-bold text-xl md:text-sm text-black shadow-2xl shadow-amber-900/50 hover:shadow-amber-700/60 hover:scale-[1.03] transition-all duration-300">
 
                         Learn More
                         <CircleArrowLeft className="w-7 h-7 group-hover:-translate-x-1 transition-transform rotate-180 text-white" />
@@ -61,7 +61,7 @@ function GameInfo() {
 
                     <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-all" />
 
-                    <div className='w-full h-50  mt-15 flex justify-between items-center px-20'>
+                    <div className='w-full h-80 md:h-50  mt-15 flex justify-between items-center px-20 md:flex-row flex-col gap-4'>
                         {/* item one */}
                         
                         <div className='w-50 h-32 bg-[#2D2C2C] flex items-center justify-center rounded-lg px-6'>
