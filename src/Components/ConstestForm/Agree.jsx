@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';  
 import Footer from '../LandingPage/Footer';
 import Logo from "../../assets/Logo.png"
-import { useNavigate } from 'react-router-dom';
+
 
 export default function Agree() {
   const navigate = useNavigate();
-  
+  const location = useLocation();  // Get current state
+
   const [formData, setFormData] = useState({
     participantName: '',
     signature: '',
@@ -88,7 +90,12 @@ export default function Agree() {
   };
 
   const goToGame = () => {
-    navigate('/game');
+    const user = location.state?.user;  // Extract user
+    if (user) {
+      navigate('/game', { state: { user } });  // Forward to game
+    } else {
+      console.error('No user data found');
+    }
   };
 
   return (
@@ -176,7 +183,7 @@ export default function Agree() {
 
             {/* Submit Button */}
             <button
-              type="submit"
+              // type="submit"
               className="mt-6 bg-yellow-500 text-black font-bold px-8 py-3 rounded hover:bg-yellow-400 transition-colors"
               onClick={goToGame}
             >

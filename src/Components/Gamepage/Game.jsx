@@ -1,20 +1,29 @@
-import { useState } from 'react'
-import SignUp from "../SignUp"
+import { useState,useEffect } from 'react'
+import SignUp from "../SignUp"  // Fixed import path consistency
 import AdminDashboard from './AdminDashboard';
 import ShoppingGame from "./ShoppingGame"
-
+import { useNavigate,useLocation } from 'react-router-dom';
 
 function GamePage() {
-const navigate = useNavigate();
+  const navigate = useNavigate();
+  const location = useLocation(); 
   const [count, setCount] = useState(0)
   const [user, setUser] = useState(null);
   const [isAdminMode, setIsAdminMode] = useState(false);
 
 
-   const handleLogin = (userData) => {
+   useEffect(() => {
+    const userFromState = location.state?.user;
+    if (userFromState) {
+      setUser(userFromState);
+      if (userFromState.role === 'admin') {
+        setIsAdminMode(true);
+      }
+    }
+  }, [location.state]);
+
+  const handleLogin = (userData) => {
     setUser(userData);
-    
-    // If user is admin, you might show different interface
     if (userData.role === 'admin') {
       setIsAdminMode(true);
     }
@@ -25,9 +34,14 @@ const navigate = useNavigate();
     setIsAdminMode(false);
   };
 
-//   if (!user) {
-//     return <Signup onLogin={handleLogin} isAdminLogin={isAdminMode} />;
-//   }
+  if (!user && !location.state?.user) {
+    return <SignUp onLogin={handleLogin} isAdminLogin={isAdminMode} />;
+  }
+
+  // Show loading if we have state but haven't set it yet
+  if (!user) {
+    return <div>Loading game...</div>;
+  }
 
   return (
     <div>
@@ -39,7 +53,7 @@ const navigate = useNavigate();
             <div>
               <h1 className="font-bold">Shopping Spree Game</h1>
               <p className="text-sm opacity-90">
-                Welcome, {user.name}! 
+                Welcome, {user?.name || 'Player'}! 
                 <span className={`ml-2 px-2 py-0.5 rounded-full text-xs ${
                   user.role === 'admin' 
                     ? 'bg-yellow-500 text-black' 
@@ -72,4 +86,4 @@ const navigate = useNavigate();
   );
 }
 
-export default GamePage
+export default GamePage;

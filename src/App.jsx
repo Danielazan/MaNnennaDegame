@@ -5,7 +5,7 @@ import SignUp from './Components/SignUp/index.jsx';
 import Agree from "./Components/ConstestForm/Agree"
 import Guide from './Components/ConstestForm/Guide';
 import AboutPage from './Components/AboutPage';
-import GamePage from './Components/Gamepage/index.jsx';
+import GamePage from './Components/Gamepage/Game.jsx';
 
 
 function App() {

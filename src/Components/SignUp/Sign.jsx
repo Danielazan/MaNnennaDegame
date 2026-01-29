@@ -1,4 +1,4 @@
-import React from 'react'
+import { useState } from 'react'
 import Bg from "../../assets/SignUpBg.png"
 import bg from "../../assets/background1.png"
 import Bus from "../../assets/Business.png"
@@ -12,10 +12,43 @@ import { useNavigate } from 'react-router-dom';
 
 function Sign() {
     const navigate = useNavigate();
+    const [email, setEmail] = useState('');
+
 
     const goToGuide = () => {
-    navigate('/guide');
-  };
+  if (email.trim()) {
+    navigate('/guide', {
+      state: {
+        user: {
+          name: email.split('@')[0], // Extract from email
+          email: email,
+          player: 'player' // Or dynamic value
+        }
+      }
+    });
+  }
+};
+
+    const handleSignUp = () => {
+        if (email.trim()) {
+            // Navigate to GamePage with mock user data
+            navigate('/game', {
+                state: {
+                    user: {
+                        name: email.split('@')[0], // Extract name from email
+                        email: email,
+                        role: 'player' // Default role
+                    }
+                }
+            });
+        }
+    };
+
+    const handleKeyPress = (e) => {
+        if (e.key === 'Enter') {
+            handleSignUp();
+        }
+    };
     return (
         <div className="h-screen w-full bg-cover bg-center bg-no-repeat  relative " style={{ backgroundImage: `url(${Bg})` }}>
 
@@ -32,15 +65,15 @@ function Sign() {
                     />
                 </div>
 
-                    <img
-                        src={game}  // Replace with your image URL
-                        alt="Absolutely positioned image"
-                        className="absolute bottom-[-1.7rem] left-142 w-80 h-80 object-cover rounded-lg shadow-lg -z-7.9"
-                    />
-                    <div className="absolute inset-0 bg-black/70 group-hover:bg-black/100 transition-all" />
+                <img
+                    src={game}  // Replace with your image URL
+                    alt="Absolutely positioned image"
+                    className="absolute bottom-[-1.7rem] left-142 w-80 h-80 object-cover rounded-lg shadow-lg -z-7.9"
+                />
+                <div className="absolute inset-0 bg-black/70 group-hover:bg-black/100 transition-all" />
                 {/* main content */}
                 <div className='w-full flex flex-col items-center justify-center relative '>
-                    
+
                     <div className='w-full md:w-2/3 flex md:flex-row flex-col gap-4 md:gap-0'>
                         <div className='w-full h-80 md:w-1/2  flex items-center justify-center'>
                             <img
@@ -68,7 +101,14 @@ function Sign() {
                                 <p className="text-[#F5F5F5] font-poppins font-medium  text-lg mb-3">Sign up with your email to access the $20 survival game</p>
 
                                 <div className='border rounded-2xl border-[#F0AE12] flex  items-center justify-between w-5/6 h-10 mt-10'>
-                                    <h1 className='font-poppins text-l pl-4 text-white'>Enter your email here</h1>
+                                    <input
+                                        type="email"
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        onKeyPress={handleKeyPress}
+                                        placeholder="Enter your email here"
+                                        className='font-poppins text-sm pl-4 text-white  backdrop-blur-sm outline-none flex-1'
+                                    />
                                     <button onClick={goToGuide} className='w-18 rounded-r-2xl h-full text-xs text-black font-bold' style={{ backgroundImage: `url(${textBg})` }}>Sign Up</button>
                                 </div>
                             </div>

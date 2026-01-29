@@ -1,14 +1,18 @@
 import React from 'react';
 import Footer from '../LandingPage/Footer';
 import Logo from "../../assets/Logo.png"
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 
 export default function ContestantGuide() {
   const navigate = useNavigate();
-
+  const location = useLocation();
+    // Get current state
   const goToAgree = () => {
-    navigate('/agree');
+    const user = location.state?.user;  // Extract user from state
+    if (user) {
+      navigate('/agree', { state: { user } });  // Forward it
+    }
   };
 
   const howItWorksSteps = [
