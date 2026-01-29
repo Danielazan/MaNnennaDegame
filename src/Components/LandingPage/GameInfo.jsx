@@ -55,7 +55,7 @@ function GameInfo() {
                             className="relative md:absolute md:bottom-[-12.55rem] md:left-135 w-full md:w-55 h-90 md:h-75 object-cover z-10 rounded-lg shadow-lg"
                         />
 
-                        <div className="h-80 w-83  bg-center bg-no-repeat bg-contain absolute bottom-50  md:bottom-[-0-2] left-13 md:left-122" style={{ backgroundImage: `url(${HRingd})` }} />
+                        <div className="h-80 w-83  bg-center bg-no-repeat bg-contain absolute bottom-50  md:bottom-[-7rem] left-13 md:left-122" style={{ backgroundImage: `url(${HRingd})` }} />
 
                     </div>
 

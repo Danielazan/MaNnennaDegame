@@ -5,6 +5,7 @@ import NneCircle from "../../assets/circlenne.png"
 import rightRib from "../../assets/right.png"
 import leftRib from "../../assets/leftribbon.png"
 import { Users, Briefcase, TrendingUp, Anchor, Eye, Handshake } from 'lucide-react';
+import { useRef } from 'react';
 
 function Business() {
     // const people =;
@@ -33,7 +34,7 @@ function Business() {
         );
     };
     return (
-        <div className="min-h-screen w-full bg-cover bg-center bg-no-repeat bg-black  relative">
+        <div id="business-section"  className="min-h-screen w-full bg-cover bg-center bg-no-repeat bg-black  relative">
 
             <div className="w-full px-2 md:px-5 relative overflow-hidden">
                 {/* Business image */}

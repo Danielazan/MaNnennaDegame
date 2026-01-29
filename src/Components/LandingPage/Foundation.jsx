@@ -4,7 +4,7 @@ import FoundationImg from "../../assets/Foundation.png"
 
 function Foundation() {
     return (
-        <div className="min-h-screen w-full bg-cover bg-center bg-no-repeat bg-black z-10 relative " >
+        <div id="foundation-section" className="min-h-screen w-full bg-cover bg-center bg-no-repeat bg-black z-10 relative " >
             <div className='w-full bg-cover bg-no-repeat h-screen flex flex-col items-center md:justify-center justify-start gap-18 md:gap-0' style={{ backgroundImage: `url(${HSun})` }}>
                 <div className='w-full h-50 items-center flex justify-center '>
                     <img

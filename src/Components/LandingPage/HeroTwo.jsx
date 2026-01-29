@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import { Play, Plus, Heart, Coins, Star, Dice5, ArrowLeft } from 'lucide-react';
 import bg from "../../assets/background1.png"
 import HM from "../../assets/Heroimg.png"
@@ -10,6 +11,13 @@ import game from "../../assets/game.png"
 import Navbar from './Navbar'
 
 function HeroTwo() {
+  const navigate = useNavigate();
+
+  const goToSignUp = () => {
+    navigate('/signup');
+  };
+
+
   return (
     <div className="min-h-screen w-full bg-cover bg-center bg-no-repeat  relative" style={{ backgroundImage: `url(${bg})` }}>
 
@@ -65,7 +73,7 @@ function HeroTwo() {
 
           <div className='w-full h-15 flex items-center justify-center'>
             {/* Big Play Button */}
-            <button className="w-50 h-10 group relative inline-flex items-center gap-4 bg-gradient-to-r from-amber-600 via-yellow-500 to-amber-600 px-10 py-6 rounded-2xl font-poppins font-bold text-xl md:text-sm text-black shadow-2xl shadow-amber-900/50 hover:shadow-amber-700/60 hover:scale-[1.03] transition-all duration-300">
+            <button className="w-50 h-10 group relative inline-flex items-center gap-4 bg-gradient-to-r from-amber-600 via-yellow-500 to-amber-600 px-10 py-6 rounded-2xl font-poppins font-bold text-xl md:text-sm text-black shadow-2xl shadow-amber-900/50 hover:shadow-amber-700/60 hover:scale-[1.03] transition-all duration-300" onClick={goToSignUp}>
               <Play className="w-7 h-7 group-hover:-translate-x-1 transition-transform rotate-180" />
               Play Game
             </button>
