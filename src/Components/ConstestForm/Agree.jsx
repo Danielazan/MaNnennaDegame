@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import Footer from '../LandingPage/Footer';
 import Logo from "../../assets/Logo.png"
+import { useNavigate } from 'react-router-dom';
 
 export default function Agree() {
+  const navigate = useNavigate();
+  
   const [formData, setFormData] = useState({
     participantName: '',
     signature: '',
@@ -82,6 +85,10 @@ export default function Agree() {
       ...formData,
       [e.target.name]: e.target.value
     });
+  };
+
+  const goToGame = () => {
+    navigate('/game');
   };
 
   return (
@@ -171,6 +178,7 @@ export default function Agree() {
             <button
               type="submit"
               className="mt-6 bg-yellow-500 text-black font-bold px-8 py-3 rounded hover:bg-yellow-400 transition-colors"
+              onClick={goToGame}
             >
               SUBMIT
             </button>

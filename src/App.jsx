@@ -5,7 +5,7 @@ import SignUp from './Components/SignUp/index.jsx';
 import Agree from "./Components/ConstestForm/Agree"
 import Guide from './Components/ConstestForm/Guide';
 import AboutPage from './Components/AboutPage';
-// import Business from './Components/LandingPage/Business.jsx';
+import GamePage from './Components/Gamepage/index.jsx';
 
 
 function App() {
@@ -18,6 +18,7 @@ function App() {
         <Route path="/agree" element={<Agree />} />
         <Route path="/guide" element={<Guide />} />
         <Route path="/agree" element={<Agree />} />
+        <Route path="/game" element={<GamePage />} />
       </Routes>
     </BrowserRouter>
   );

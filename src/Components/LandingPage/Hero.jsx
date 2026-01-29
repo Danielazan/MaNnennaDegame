@@ -54,6 +54,10 @@ function Hero() {
                 <span className="flex items-center gap-2">
                     <span className="w-2 h-2 bg-yellow-400 rounded-full" /> Entrepreneur
                 </span>
+
+                <span className="flex items-center gap-2">
+                    <span className="w-2 h-2 bg-yellow-400 rounded-full" /> YouTuber
+                </span>
                 <span className="flex items-center gap-2">
                     <span className="w-2 h-2 bg-yellow-400 rounded-full" /> Media Personality
                 </span>

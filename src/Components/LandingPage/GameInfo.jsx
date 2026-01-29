@@ -1,5 +1,5 @@
 import React from 'react'
-import Bus from "../../assets/Business.png"
+import Bus from "../../assets/Survive.png"
 import leftcross from "../../assets/leftcross.png"
 import rightcross from "../../assets/rightcross.png"
 import textBg from "../../assets/textbg.png"
