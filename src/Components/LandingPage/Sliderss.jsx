@@ -116,7 +116,7 @@ function CarouselSwiper({ slides = [] }) {
       slidesPerView={1}
       navigation
       pagination={{ clickable: true }}
-      autoplay={{ delay: 5000, disableOnInteraction: false }}
+      autoplay={{ delay: 7000, disableOnInteraction: false }}
       loop={true}
       className="w-full h-full"
     >
