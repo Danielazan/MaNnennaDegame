@@ -50,7 +50,7 @@ function Hero() {
                 </div>
 
 
-                <div className="w-full h-10 bg-black align-center justify-center flex flex-wrap gap-4  text-sm text-gray-300">
+                <div className="w-full h-20 md:h-10 bg-black align-center justify-center flex flex-wrap gap-4  text-sm text-gray-300">
                 <span className="flex items-center gap-2">
                     <span className="w-2 h-2 bg-yellow-400 rounded-full" /> Entrepreneur
                 </span>
