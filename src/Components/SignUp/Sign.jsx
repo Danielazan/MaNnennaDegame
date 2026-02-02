@@ -107,7 +107,7 @@ function Sign() {
                                         onChange={(e) => setEmail(e.target.value)}
                                         onKeyPress={handleKeyPress}
                                         placeholder="Enter your email here"
-                                        className='font-poppins text-sm pl-4 text-white  backdrop-blur-sm outline-none flex-1'
+                                        className='font-poppins text-sm pl-4 text-white  backdrop-blur-sm outline-none flex-1 h-full rounded-l-3xl bg-none'
                                     />
                                     <button onClick={goToGuide} className='w-18 rounded-r-2xl h-full text-xs text-black font-bold' style={{ backgroundImage: `url(${textBg})` }}>Sign Up</button>
                                 </div>

@@ -6,6 +6,7 @@ import Agree from "./Components/ConstestForm/Agree"
 import Guide from './Components/ConstestForm/Guide';
 import AboutPage from './Components/AboutPage';
 import GamePage from './Components/Gamepage/Game.jsx';
+import WelcomeMassage from './Components/Gamepage/WelcomeMassage.jsx';
 
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
         <Route path="/agree" element={<Agree />} />
         <Route path="/guide" element={<Guide />} />
         <Route path="/agree" element={<Agree />} />
-        <Route path="/game" element={<GamePage />} />
+        <Route path="/game" element={<WelcomeMassage />} />
       </Routes>
     </BrowserRouter>
   );

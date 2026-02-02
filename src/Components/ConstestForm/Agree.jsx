@@ -1,18 +1,36 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';  
 import Footer from '../LandingPage/Footer';
 import Logo from "../../assets/Logo.png"
-
 
 export default function Agree() {
   const navigate = useNavigate();
   const location = useLocation();  // Get current state
 
+  const user = location.state?.user; // Get user from navigation
+  const userName = user?.name || ''; // Name from navigation
+  const userEmail = user?.email || ''; // Email from navigation
+  const userInitials = userName ? userName.trim().split(' ').map(n => n[0]).join('').toUpperCase() : ''; // Initials from name
+
   const [formData, setFormData] = useState({
-    participantName: '',
-    signature: '',
+    participantName: userName,
+    signature: userInitials,
     date: ''
   });
+
+  // Set current date in DD-MM/YY format
+  useEffect(() => {
+    const now = new Date();
+    const day = String(now.getDate()).padStart(2, '0');
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const year = String(now.getFullYear()).slice(-2);
+    const currentDate = `${day}-${month}/${year}`;
+    
+    setFormData(prev => ({
+      ...prev,
+      date: currentDate
+    }));
+  }, []);
 
   const sections = [
     {
@@ -76,10 +94,87 @@ export default function Agree() {
     }
   ];
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Handle form submission
+    
+    // Prepare nicely designed email body
+    const emailSubject = `Consent Form - ${userName} (${formData.date})`;
+    const emailBody = `
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; background: #f4f4f4; }
+        .header { background: linear-gradient(135deg, #FFD700, #FFA500); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }
+        .content { background: white; padding: 30px; border-radius: 0 0 10px 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 20px 0; }
+        .info-item { background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #FFD700; }
+        .info-label { font-weight: bold; color: #666; }
+        .info-value { font-size: 18px; color: #333; margin-top: 5px; }
+        .signature-section { margin-top: 30px; padding-top: 30px; border-top: 2px solid #eee; }
+        .signature { font-size: 24px; font-weight: bold; color: #FFD700; font-family: 'Brush Script MT', cursive; }
+        .date { font-style: italic; color: #666; margin-top: 10px; }
+        .footer { text-align: center; margin-top: 30px; color: #888; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1 style="margin: 0; font-size: 28px;">$20 Survival Game Show</h1>
+        <p style="margin: 5px 0 0 0; font-size: 18px;">Contestant Consent & Release Form</p>
+    </div>
+    
+    <div class="content">
+        <div class="info-grid">
+            <div class="info-item">
+                <div class="info-label">Participant Name:</div>
+                <div class="info-value">${userName}</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Email:</div>
+                <div class="info-value">${userEmail}</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Signature:</div>
+                <div class="info-value">${formData.signature}</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Date Signed:</div>
+                <div class="info-value">${formData.date}</div>
+            </div>
+        </div>
+        
+        <div class="signature-section">
+            <div class="signature">${formData.signature}</div>
+            <div class="date">Date: ${formData.date}</div>
+        </div>
+        
+        <div style="margin-top: 30px; padding: 20px; background: #e8f5e8; border-radius: 8px; border-left: 4px solid #28a745;">
+            <strong>✅ Form Status:</strong> Successfully Signed and Submitted
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>This is an automated consent form submission from the $20 Survival Game Show.</p>
+        <p>Produced by Nnenna Eloka | Worldwide Event</p>
+    </div>
+</body>
+</html>
+    `.trim();
+
+    // Send email to nnennaeloka.com
+    const mailtoUrl = `mailto:danfrancix@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+    
+    // Open email client
+    window.location.href = mailtoUrl;
+    
+    console.log('Consent form submitted:', formData);
+    console.log('Email prepared with details:', { userEmail, userName, signature: formData.signature, date: formData.date });
+    
+    // Navigate to game after short delay to allow email client to open
+    setTimeout(() => {
+      goToGame();
+    }, 1000);
   };
 
   const handleInputChange = (e) => {
@@ -90,9 +185,8 @@ export default function Agree() {
   };
 
   const goToGame = () => {
-    const user = location.state?.user;  // Extract user
     if (user) {
-      navigate('/game', { state: { user } });  // Forward to game
+      navigate('/game', { state: { user } });
     } else {
       console.error('No user data found');
     }
@@ -118,7 +212,7 @@ export default function Agree() {
             <p><span className="font-semibold">Event Name:</span> $20 Survival Game Show</p>
             <p><span className="font-semibold">Produced By:</span> Nnenna Eloka</p>
             <p><span className="font-semibold">Location:</span> Worldwide</p>
-            <p><span className="font-semibold">Date:</span></p>
+            <p><span className="font-semibold">Date:</span> <span className="text-yellow-500">{formData.date}</span></p>
           </div>
 
           {/* Sections */}
@@ -149,8 +243,9 @@ export default function Agree() {
                   name="participantName"
                   value={formData.participantName}
                   onChange={handleInputChange}
-                  className="ml-2 bg-transparent border-b border-gray-600 focus:border-yellow-500 outline-none px-1"
+                  className="ml-2 bg-transparent border-b border-gray-600 focus:border-yellow-500 outline-none px-1 text-white"
                   placeholder="___________"
+                  readOnly // Make name read-only since it comes from navigation
                 />
               </label>
             </div>
@@ -162,7 +257,7 @@ export default function Agree() {
                   name="signature"
                   value={formData.signature}
                   onChange={handleInputChange}
-                  className="ml-2 bg-transparent border-b border-gray-600 focus:border-yellow-500 outline-none px-1"
+                  className="ml-2 bg-transparent border-b border-gray-600 focus:border-yellow-500 outline-none px-1 text-yellow-500 font-bold"
                   placeholder="___________"
                 />
               </label>
@@ -174,31 +269,24 @@ export default function Agree() {
                   type="text"
                   name="date"
                   value={formData.date}
-                  onChange={handleInputChange}
-                  className="ml-2 bg-transparent border-b border-gray-600 focus:border-yellow-500 outline-none px-1"
-                  placeholder="___________"
+                  className="ml-2 bg-transparent border-b border-gray-600 focus:border-yellow-500 outline-none px-1 text-yellow-500 font-semibold"
+                  readOnly // Date is auto-filled
                 />
               </label>
             </div>
 
             {/* Submit Button */}
             <button
-              // type="submit"
-              className="mt-6 bg-yellow-500 text-black font-bold px-8 py-3 rounded hover:bg-yellow-400 transition-colors"
-              onClick={goToGame}
+              type="submit"
+              className="mt-6 bg-yellow-500 text-black font-bold px-8 py-3 rounded hover:bg-yellow-400 transition-colors w-full"
             >
-              SUBMIT
+              SUBMIT & SIGN
             </button>
           </form>
         </div>
 
-        {/* Footer Bottom */}
-        {/* <div className="mt-12 text-center">
-          <Footer/>
-         
-        </div> */}
+        <Footer/>
       </div>
-      <Footer/>
     </div>
   );
 }
