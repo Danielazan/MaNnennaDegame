@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';  
 import Footer from '../LandingPage/Footer';
 import Logo from "../../assets/Logo.png"
+import emailjs from '@emailjs/browser';
 
 export default function Agree() {
   const navigate = useNavigate();
@@ -30,6 +31,8 @@ export default function Agree() {
       ...prev,
       date: currentDate
     }));
+
+    emailjs.init('xUlB7PtVSdJDIXubf');
   }, []);
 
   const sections = [
@@ -94,88 +97,37 @@ export default function Agree() {
     }
   ];
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    
-    // Prepare nicely designed email body
-    const emailSubject = `Consent Form - ${userName} (${formData.date})`;
-    const emailBody = `
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; background: #f4f4f4; }
-        .header { background: linear-gradient(135deg, #FFD700, #FFA500); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }
-        .content { background: white; padding: 30px; border-radius: 0 0 10px 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 20px 0; }
-        .info-item { background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #FFD700; }
-        .info-label { font-weight: bold; color: #666; }
-        .info-value { font-size: 18px; color: #333; margin-top: 5px; }
-        .signature-section { margin-top: 30px; padding-top: 30px; border-top: 2px solid #eee; }
-        .signature { font-size: 24px; font-weight: bold; color: #FFD700; font-family: 'Brush Script MT', cursive; }
-        .date { font-style: italic; color: #666; margin-top: 10px; }
-        .footer { text-align: center; margin-top: 30px; color: #888; font-size: 14px; }
-    </style>
-</head>
-<body>
-    <div class="header">
-        <h1 style="margin: 0; font-size: 28px;">$20 Survival Game Show</h1>
-        <p style="margin: 5px 0 0 0; font-size: 18px;">Contestant Consent & Release Form</p>
-    </div>
-    
-    <div class="content">
-        <div class="info-grid">
-            <div class="info-item">
-                <div class="info-label">Participant Name:</div>
-                <div class="info-value">${userName}</div>
-            </div>
-            <div class="info-item">
-                <div class="info-label">Email:</div>
-                <div class="info-value">${userEmail}</div>
-            </div>
-            <div class="info-item">
-                <div class="info-label">Signature:</div>
-                <div class="info-value">${formData.signature}</div>
-            </div>
-            <div class="info-item">
-                <div class="info-label">Date Signed:</div>
-                <div class="info-value">${formData.date}</div>
-            </div>
-        </div>
-        
-        <div class="signature-section">
-            <div class="signature">${formData.signature}</div>
-            <div class="date">Date: ${formData.date}</div>
-        </div>
-        
-        <div style="margin-top: 30px; padding: 20px; background: #e8f5e8; border-radius: 8px; border-left: 4px solid #28a745;">
-            <strong>✅ Form Status:</strong> Successfully Signed and Submitted
-        </div>
-    </div>
-    
-    <div class="footer">
-        <p>This is an automated consent form submission from the $20 Survival Game Show.</p>
-        <p>Produced by Nnenna Eloka | Worldwide Event</p>
-    </div>
-</body>
-</html>
-    `.trim();
-
-    // Send email to nnennaeloka.com
-    const mailtoUrl = `mailto:danfrancix@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
-    
-    // Open email client
-    window.location.href = mailtoUrl;
-    
-    console.log('Consent form submitted:', formData);
-    console.log('Email prepared with details:', { userEmail, userName, signature: formData.signature, date: formData.date });
-    
-    // Navigate to game after short delay to allow email client to open
-    setTimeout(() => {
-      goToGame();
-    }, 1000);
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  
+  // Prepare template parameters (matches your EmailJS template variables)
+  const templateParams = {
+    userName,
+    userEmail,
+    signature: formData.signature,
+    date: formData.date,
   };
+
+  try {
+    await emailjs.send(
+      'service_217yv16',    // e.g., process.env.REACT_APP_EMAILJS_SERVICE_ID
+      'template_wfqqt07',   // e.g., process.env.REACT_APP_EMAILJS_TEMPLATE_ID
+      templateParams,
+      'xUlB7PtVSdJDIXubf'     // Optional if init() called; overrides locally
+    );
+    console.log('Consent form submitted successfully via EmailJS');
+  } catch (error) {
+    console.error('EmailJS send failed:', error);
+    // Optional: Show user error toast
+  }
+
+  console.log('Consent form data:', formData);
+  
+  // Navigate to game
+  setTimeout(() => {
+    goToGame();
+  }, 1000);
+};
 
   const handleInputChange = (e) => {
     setFormData({
