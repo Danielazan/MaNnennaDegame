@@ -111,7 +111,7 @@ function CarouselSwiper({ slides = [] }) {
 
   return (
     <Swiper
-      modules={[ Pagination, Autoplay]}
+      modules={[ Autoplay]}
       spaceBetween={0}
       slidesPerView={1}
       navigation
