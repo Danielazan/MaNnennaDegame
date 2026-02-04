@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import bg from "../../assets/background1.png"
-import mainPic from "../../assets/MaNnenna_Pic.png"
+import mainPic from "../../assets/nnewhite.png"
+// import mainPic from "../../assets/MaNnenna_Pic.png"
 import Logo from "../../assets/Logo.png"
 import textBg from "../../assets/textbg.png"
 import Navbar from './Navbar';
