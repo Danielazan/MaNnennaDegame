@@ -10,12 +10,14 @@ function Hero() {
     return (
         <div className="min-h-screen w-full bg-cover bg-center bg-no-repeat  relative" style={{ backgroundImage: `url(${bg})` }}>
             <div className="w-full  px-2 md:px-5 relative overflow-hidden">
+               
                 <Navbar/>
 
                 {/* main content */}
-                <div className="w-full overflow-hidden flex flex-col md:flex-row items-center  px-2 ">
+                <div className="w-full overflow-hidden flex flex-col md:flex-row items-center  px-2 relative">
+                     
                     {/* Left */}
-                    <div className='w-full md:w-90 ml-20 flex items-center flex-col md:block mb-10 md:mb-0'>
+                    <div className='w-full md:w-90 ml-20 flex items-center flex-col md:block mb-10 md:mb-0 z-10'>
 
                         <p className="text-[#F0AE12] font-poppins font-medium  text-lg mb-3">Hey, I'm</p>
  
@@ -42,10 +44,10 @@ function Hero() {
                         </h1>
                     </div>
 
-
+                    
                     {/* Right Image */}
                     <div className="w-full h-127 md:h-125  bg-contain md:bg-contain bg-no-repeat relative flex justify-start" style={{ backgroundImage: `url(${mainPic})` }}>
-
+                            <div className=" absolute inset-0 bg-black/50 group-hover:bg-black/80 transition-all" />
                     </div>
 
                 </div>
